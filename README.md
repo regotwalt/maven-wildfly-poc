@@ -4,7 +4,7 @@ This project is a proof of concept of utilizing the Maven plugin for the WildFly
 
 ## Install WildFly
 
-Download WildFly 17 from the [WildFly download site]{https://wildfly.org/downloads/}.
+Download WildFly 17 from the [WildFly download site](https://wildfly.org/downloads/).
 
 Unzip the download in a location of your choice (we'll refer to this as `WILDFLY_HOME` for the rest of the guide).
 
