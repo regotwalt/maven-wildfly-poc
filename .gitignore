@@ -2,7 +2,9 @@
 target/
 
 # Eclipse IDE
-# TODO
+.classpath
+.project
+.settings/
 
 # IntelliJ IDE
 .idea/
