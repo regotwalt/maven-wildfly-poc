@@ -7,3 +7,6 @@ target/
 # IntelliJ IDE
 .idea/
 *.iml
+
+# Apple
+.DS_Store

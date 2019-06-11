@@ -3,16 +3,73 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <!-- Maven Version -->
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Project Coordinates -->
     <groupId>com.rachelgotwalt</groupId>
     <artifactId>maven-wildfly-poc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- Build Type -->
     <packaging>war</packaging>
 
     <properties>
+        <!-- General Properties -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Dependencies Versions -->
+        <wildfly.version>2.0.1.Final</wildfly.version>
+        <servlet.version>3.1.0</servlet.version>
+
+        <!-- Developer Properties -->
+        <!-- TODO: Consider moving this into Maven's settings.xml or a separate properties file -->
+        <!-- TODO: There might be a way to make a user as a part of the build instead of in the setup guide -->
+        <wildfly.local.path>/Users/rachel/TechmodBerwick/wildfly-17.0.0.Final</wildfly.local.path>
+        <wildfly.local.username>localAdmin</wildfly.local.username>
+        <wildfly.local.password>s3cretpa$s</wildfly.local.password>
     </properties>
+
+    <build>
+        <plugins>
+            <!-- Plugin for the WildFly Application Server -->
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${wildfly.version}</version>
+                <configuration>
+                    <jboss-home>${wildfly.path}</jboss-home>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Dependency for Java Servlet (Provided by Application Server) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Profiles for the Different Environments -->
+    <profiles>
+        <!-- Local Environment for Development -->
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <wildfly.host.name>127.0.0.1</wildfly.host.name>
+                <wildfly.port>9990</wildfly.port>
+                <wildfly.username>${wildfly.local.username}</wildfly.username>
+                <wildfly.password>${wildfly.local.password}</wildfly.password>
+                <wildfly.path>${wildfly.local.path}</wildfly.path>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
