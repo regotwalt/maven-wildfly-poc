@@ -11,6 +11,11 @@ import java.io.IOException;
 public class HelloWorldServlet extends HttpServlet {
 
     /**
+     * Serialization version number
+     */
+    private static final long serialVersionUID = 4480068307785810801L;
+
+    /**
      * Handles a GET request by printing "Hello World!!!" to the user.
      *
      * @param request the incoming request
