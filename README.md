@@ -22,8 +22,6 @@ Open a terminal and `cd` into `WILDFLY_HOME/bin`. Run `./add-user.sh`. Follow th
 
 Download Maven (if you do not already have it).
 
-Open a terminal and `cd` into the directory where you've stored this project.
-
-Run `mvn clean wildfly:run`.
+Open a terminal and `cd` into `PROJECT_HOME`. Run `mvn clean install wildfly:run`.
 
 Navigate to `http://localhost:9990` (you'll need your username and password from earlier). Under "Deployments", click on the "Start" link. Click on the project on the left and then click on the Context Root link. You should see "Hello World!!!" displayed.
