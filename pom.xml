@@ -20,16 +20,13 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <!-- Dependencies Versions -->
+        <!-- Plugins/Dependencies Versions -->
         <wildfly.version>2.0.1.Final</wildfly.version>
         <servlet.version>3.1.0</servlet.version>
 
         <!-- Developer Properties -->
         <!-- TODO: Consider moving this into Maven's settings.xml or a separate properties file -->
-        <!-- TODO: There might be a way to make a user as a part of the build instead of in the setup guide -->
         <wildfly.local.path>/Users/rachel/TechmodBerwick/wildfly-17.0.0.Final</wildfly.local.path>
-        <wildfly.local.username>localAdmin</wildfly.local.username>
-        <wildfly.local.password>s3cretpa$s</wildfly.local.password>
     </properties>
 
     <build>
@@ -65,10 +62,6 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <wildfly.host.name>127.0.0.1</wildfly.host.name>
-                <wildfly.port>9990</wildfly.port>
-                <wildfly.username>${wildfly.local.username}</wildfly.username>
-                <wildfly.password>${wildfly.local.password}</wildfly.password>
                 <wildfly.path>${wildfly.local.path}</wildfly.path>
             </properties>
         </profile>
